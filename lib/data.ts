@@ -35,51 +35,49 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Web Developer",
+    location: "Remote",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "I have been working as a freelancer since 2020 on projects of different sizes, from websites to adding features to web apps.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2020",
   },
   {
     title: "Front-End Developer",
-    location: "Orlando, FL",
+    location: "Tirana",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I have worked as a frontend developer for Wolf Technologies for almost two years now. ",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
-  },
-  {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "January 2022 - present",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "SAAS for Bridges and Construction company",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
+      "I have worked as a frontend developer on this project for 6 months. ",
+    tags: ["React", "MUI 5", "Javascript", "Typescript"],
     imageUrl: corpcommentImg,
   },
   {
-    title: "rmtDev",
-    description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+    title: "Company Website",
+    description: "I have created the Wolf Technologies website from scratch",
+    tags: ["Next.js", "TypeScript", "Tailwind", "React Hook Form", "Yup"],
     imageUrl: rmtdevImg,
   },
   {
-    title: "Word Analytics",
+    title: "Internal Company Management System",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+      "I have built from scratch the frontend of our company internal management system.",
+    tags: [
+      "React",
+      "Chakra UI",
+      "React Query",
+      "Axios",
+      "React Hook Form",
+      "Yup",
+    ],
     imageUrl: wordanalyticsImg,
   },
 ] as const;
@@ -95,13 +93,5 @@ export const skillsData = [
   "Git",
   "Tailwind",
   "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
   "Framer Motion",
 ] as const;
