@@ -2,6 +2,8 @@ import BgDecorator from "@/components/BgDecorator";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "@/components/header";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
-      >
-        <BgDecorator />
-        {children}
-      </body>
+      <Providers>
+        <body
+          className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        >
+          <Header />
+          <BgDecorator />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
