@@ -3,8 +3,8 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import wolftechWebsite from "@/public/wolf-app.png";
+import wolfApp from "@/public/wolf-website.png";
 
 export const links = [
   {
@@ -54,19 +54,6 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "SAAS for Bridges and Construction company",
-    description:
-      "I have worked as a frontend developer on this project for 6 months. ",
-    tags: ["React", "MUI 5", "Javascript", "Typescript"],
-    imageUrl: corpcommentImg,
-  },
-  {
-    title: "Company Website",
-    description: "I have created the Wolf Technologies website from scratch",
-    tags: ["Next.js", "TypeScript", "Tailwind", "React Hook Form", "Yup"],
-    imageUrl: rmtdevImg,
-  },
-  {
     title: "Internal Company Management System",
     description:
       "I have built from scratch the frontend of our company internal management system.",
@@ -78,7 +65,23 @@ export const projectsData = [
       "React Hook Form",
       "Yup",
     ],
-    imageUrl: wordanalyticsImg,
+    imageUrl: wolftechWebsite,
+  },
+
+  {
+    title: "Company Website",
+    description:
+      "I have created the Wolf Technologies website from scratch, including forms and validations and also scheduling meetings with Calendly.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "React Hook Form", "Yup"],
+    imageUrl: wolfApp,
+  },
+
+  {
+    title: "SAAS for Bridges and Construction company",
+    description:
+      "I have worked as a frontend developer on this project for 6 months. ",
+    tags: ["React", "MUI 5", "Javascript", "Typescript"],
+    imageUrl: corpcommentImg,
   },
 ] as const;
 
