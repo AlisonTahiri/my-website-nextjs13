@@ -29,7 +29,7 @@ export default function Languages() {
     <section
       id="languages"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="max-w-[53rem] scroll-mt-28 text-center"
     >
       <SectionHeading>Languages I know</SectionHeading>
       <motion.ul

@@ -3,13 +3,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function SectionDivider() {
+export default function SectionDivider({
+  hideDivider,
+}: {
+  hideDivider?: boolean;
+}) {
   return (
-    <motion.div
-      className="bg-gray-200 my-24 h-16 w-1 rounded-full hidden sm:block dark:bg-opacity-20"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.125 }}
-    ></motion.div>
+    <>
+      {hideDivider ? (
+        <div className="my-16 sm:my-24" />
+      ) : (
+        <motion.div
+          className="bg-gray-200 sm:h-16 sm:w-1 w-full h-0.5 my-16 sm:my-24 rounded-full sm:block dark:bg-opacity-20"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.125 }}
+        ></motion.div>
+      )}
+    </>
   );
 }
