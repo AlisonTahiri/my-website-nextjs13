@@ -95,3 +95,35 @@ export const skillsData = [
   "Prisma",
   "Framer Motion",
 ] as const;
+
+export const languagesData = [
+  {
+    name: "Albanian",
+    level: 10,
+    flagImage: "/flags/albanian-flag.png",
+  },
+
+  {
+    name: "English",
+    level: 9,
+    flagImage: "/flags/us-flag.png",
+  },
+
+  {
+    name: "Italian",
+    level: 7,
+    flagImage: "/flags/italian-flag.png",
+  },
+
+  {
+    name: "Turkish",
+    level: 5,
+    flagImage: "/flags/turkish-flag.png",
+  },
+
+  {
+    name: "German",
+    level: 3,
+    flagImage: "/flags/german-flag.png",
+  },
+] as const;
