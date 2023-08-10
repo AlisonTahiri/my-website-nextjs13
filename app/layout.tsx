@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/sections/header";
 import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/sections/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Header />
           <BgDecorator />
           {children}
+          <Footer />
           <Toaster position="top-right" />
         </body>
       </Providers>
