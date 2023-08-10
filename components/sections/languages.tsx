@@ -27,7 +27,7 @@ export default function Languages() {
 
   return (
     <section
-      id="skills"
+      id="languages"
       ref={ref}
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
@@ -55,7 +55,6 @@ export default function Languages() {
               ></Image>
               <div className="text-lg">{lang.name}</div>
             </div>
-            {/* <div className="text-xs italic">{lang.level}</div> */}
             <LanguageLevel levelOverTen={lang.level} />
           </li>
         ))}
