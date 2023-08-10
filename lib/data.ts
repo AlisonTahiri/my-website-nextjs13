@@ -1,7 +1,6 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import wolftechWebsite from "@/public/wolf-app.png";
 import wolfApp from "@/public/wolf-website.png";
@@ -39,7 +38,7 @@ export const experiencesData = [
     location: "Remote",
     description:
       "I have been working as a freelancer since 2020 on projects of different sizes, from websites to adding features to web apps.",
-    icon: React.createElement(LuGraduationCap),
+    icon: React.createElement(CgWorkAlt),
     date: "2020",
   },
   {
@@ -47,7 +46,7 @@ export const experiencesData = [
     location: "Tirana",
     description:
       "I have worked as a frontend developer for Wolf Technologies for almost two years now. ",
-    icon: React.createElement(CgWorkAlt),
+    icon: React.createElement(FaReact),
     date: "January 2022 - present",
   },
 ] as const;
