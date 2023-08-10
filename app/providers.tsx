@@ -1,4 +1,7 @@
+"use client";
+
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import { ThemeProvider } from "next-themes";
 import React from "react";
 
 type Props = {
@@ -7,6 +10,8 @@ type Props = {
 
 export const Providers = ({ children }: Props) => {
   return (
-    <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
+    <ActiveSectionContextProvider>
+      <ThemeProvider attribute="class">{children}</ThemeProvider>
+    </ActiveSectionContextProvider>
   );
 };
