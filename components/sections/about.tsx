@@ -27,8 +27,8 @@ export default function About() {
         <span className="font-medium">Web Development</span>. Since then I have
         contributed to many projects, including websites and applications of
         different stacks and libraries. I am specialized in creating frontend
-        applications in React/Typescript and I am always curious about new
-        frontend solutions.
+        applications in <span className="font-semibold">React/Typescript</span>{" "}
+        and I am always curious about new frontend solutions.
       </p>
 
       <p>
