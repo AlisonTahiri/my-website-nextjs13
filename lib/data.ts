@@ -34,20 +34,20 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Web Developer",
+    title: "Front-End Developer @ Wolf Technologies",
+    location: "Tirana",
+    description:
+      "I have worked as a frontend developer for Wolf Technologies for almost two years now. Here I have been part of the three main projects listed above.",
+    icon: React.createElement(FaReact),
+    date: "January 2022 - present",
+  },
+  {
+    title: "Contractor Web Developer",
     location: "Remote",
     description:
       "I have been working as a freelancer since 2020 on projects of different sizes, from websites to adding features to web apps.",
     icon: React.createElement(CgWorkAlt),
     date: "2020",
-  },
-  {
-    title: "Front-End Developer",
-    location: "Tirana",
-    description:
-      "I have worked as a frontend developer for Wolf Technologies for almost two years now. ",
-    icon: React.createElement(FaReact),
-    date: "January 2022 - present",
   },
 ] as const;
 
