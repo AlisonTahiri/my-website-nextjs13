@@ -6,7 +6,7 @@ import { BsMoon, BsSun } from "react-icons/bs";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -16,8 +16,15 @@ export default function ThemeSwitch() {
     return null;
   }
 
-  const handleChange = () =>
-    theme == "dark" ? setTheme("light") : setTheme("dark");
+  console.log({ systemTheme, theme });
+
+  const handleChange = () => {
+    if (theme === "system") {
+      systemTheme === "dark" ? setTheme("light") : setTheme("dark");
+    } else {
+      theme == "dark" ? setTheme("light") : setTheme("dark");
+    }
+  };
 
   return (
     <button
