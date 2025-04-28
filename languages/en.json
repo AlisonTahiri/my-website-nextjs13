@@ -1,0 +1,14 @@
+{
+  "NavLinks": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "HomePage": {
+    "title": "Hellow world!",
+    "about": "Go to the about page"
+  }
+}

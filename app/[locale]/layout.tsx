@@ -1,13 +1,16 @@
 import BgDecorator from "@/components/BgDecorator";
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/sections/header";
-import { Providers } from "./providers";
+import { Providers } from "../providers";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/sections/footer";
 import ThemeSwitch from "@/components/theme-switcher";
 import Script from "next/script";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +20,22 @@ export const metadata: Metadata = {
     "Alison Tahiri is a web developer with more than 3 years of experience.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html suppressHydrationWarning lang="en" className="!scroll-smooth">
+    <html suppressHydrationWarning lang={locale} className="!scroll-smooth">
       {/* Google Tag Manager Snippet */}
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
@@ -40,7 +50,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
-        <Providers>
+        <Providers locale={locale}>
           <Header />
           <BgDecorator />
           {children}

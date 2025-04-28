@@ -1,0 +1,14 @@
+{
+  "NavLinks": {
+    "home": "Startseite",
+    "about": "Über",
+    "projects": "Projekte",
+    "skills": "Fähigkeiten",
+    "experience": "Erfahrung",
+    "contact": "Kontakt"
+  },
+  "HomePage": {
+    "title": "Halo Welt!",
+    "about": "Go to the about page"
+  }
+}
