@@ -3,19 +3,16 @@
 import React, { useRef } from "react";
 import SectionHeading from "@/components/section-heading";
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "../submit-btn";
 import toast from "react-hot-toast";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact");
   const formRef = useRef<HTMLFormElement | null>(null);
 
   return (
     <motion.section
       id="contact"
-      ref={ref}
       className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
       initial={{
         opacity: 0,

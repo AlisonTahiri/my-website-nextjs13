@@ -2,8 +2,7 @@
 
 import React from "react";
 import SectionHeading from "@/components/section-heading";
-import { languagesData, skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
+import { languagesData } from "@/lib/data";
 import { motion } from "framer-motion";
 import LanguageLevel from "../language-level";
 import Image from "next/image";
@@ -23,14 +22,8 @@ const fadeInAnimationVariants = {
 };
 
 export default function Languages() {
-  const { ref } = useSectionInView("Skills");
-
   return (
-    <section
-      id="languages"
-      ref={ref}
-      className="max-w-[53rem] scroll-mt-28 text-center"
-    >
+    <section id="languages" className="max-w-[53rem] scroll-mt-28 text-center">
       <SectionHeading>Languages I know</SectionHeading>
       <motion.ul
         variants={fadeInAnimationVariants}
