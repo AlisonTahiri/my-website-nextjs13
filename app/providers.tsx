@@ -1,21 +1,21 @@
 "use client";
 
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import { NextIntlClientProvider } from "next-intl";
+import { Locale, NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "next-themes";
 import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  locale: string;
+  locale: Locale;
 };
 
 export const Providers = ({ children, locale }: Props) => {
   return (
-    <ActiveSectionContextProvider>
-      <NextIntlClientProvider locale={locale}>
+    <NextIntlClientProvider locale={locale}>
+      <ActiveSectionContextProvider locale={locale}>
         <ThemeProvider attribute="class">{children}</ThemeProvider>
-      </NextIntlClientProvider>
-    </ActiveSectionContextProvider>
+      </ActiveSectionContextProvider>
+    </NextIntlClientProvider>
   );
 };

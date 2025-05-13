@@ -7,12 +7,22 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
+import { experiencesData, links } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "next-themes";
+import { Locale } from "next-intl";
 
-export default function Experience() {
-  const { ref } = useSectionInView("Experience");
+type Props = {
+  locale: Locale;
+};
+
+export default function Experience({ locale }: Props) {
+  const sectionName =
+    links.find((link) => link.hash === "#experience")?.name[locale] ||
+    "Experience";
+
+  const { ref } = useSectionInView(sectionName, 0.5);
+
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
 

@@ -2,9 +2,10 @@
 
 import React from "react";
 import SectionHeading from "@/components/section-heading";
-import { skillsData } from "@/lib/data";
+import { links, skillsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+import { Locale } from "next-intl";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -20,8 +21,15 @@ const fadeInAnimationVariants = {
   }),
 };
 
-export default function Skills() {
-  const { ref } = useSectionInView("Skills");
+type Props = {
+  locale: Locale;
+};
+
+export default function Skills({ locale }: Props) {
+  const sectionName =
+    links.find((link) => link.hash === "#skills")?.name[locale] || "Skills";
+
+  const { ref } = useSectionInView(sectionName, 0.5);
 
   return (
     <section

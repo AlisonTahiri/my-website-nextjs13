@@ -9,9 +9,17 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { links } from "@/lib/data";
+import { Locale } from "next-intl";
 
-export default function Intro() {
-  const { ref } = useSectionInView("Home", 0.5);
+type Props = {
+  locale: Locale;
+};
+
+export default function Intro({ locale }: Props) {
+  const section = links.find((link) => link.hash === "#home");
+  const { ref } = useSectionInView(section?.name[locale] ?? "Home", 0.5);
+  // const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (

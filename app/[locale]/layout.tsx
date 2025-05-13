@@ -50,7 +50,7 @@ export default async function RootLayout({
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
         <Providers locale={locale}>
-          <Header />
+          <Header locale={locale} />
           <BgDecorator />
           {children}
           <Footer />
@@ -68,4 +68,8 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

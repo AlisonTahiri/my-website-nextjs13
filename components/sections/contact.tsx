@@ -7,9 +7,19 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "../submit-btn";
 import toast from "react-hot-toast";
+import { links } from "@/lib/data";
+import { Locale } from "next-intl";
 
-export default function Contact() {
-  const { ref } = useSectionInView("Contact");
+type Props = {
+  locale: Locale;
+};
+
+export default function Contact({ locale }: Props) {
+  const sectionName =
+    links.find((link) => link.hash === "#contact")?.name[locale] || "Contact";
+
+  const { ref } = useSectionInView(sectionName, 0.5);
+
   const formRef = useRef<HTMLFormElement | null>(null);
 
   return (

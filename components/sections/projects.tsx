@@ -2,12 +2,20 @@
 
 import React from "react";
 import SectionHeading from "@/components/section-heading";
-import { projectsData } from "@/lib/data";
+import { links, projectsData } from "@/lib/data";
 import Project from "./project";
 import { useSectionInView } from "@/lib/hooks";
+import { Locale } from "next-intl";
 
-export default function Projects() {
-  const { ref } = useSectionInView("Projects", 0.5);
+type Props = {
+  locale: Locale;
+};
+
+export default function Projects({ locale }: Props) {
+  const sectionName =
+    links.find((link) => link.hash === "#projects")?.name[locale] || "Projects";
+
+  const { ref } = useSectionInView(sectionName, 0.5);
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 ">

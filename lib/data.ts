@@ -7,30 +7,50 @@ import wolfApp from "@/public/wolf-website.png";
 
 export const links = [
   {
-    name: "Home",
+    name: {
+      en: "Home",
+      de: "Startseite",
+    },
     hash: "#home",
   },
   {
-    name: "About",
+    name: {
+      en: "About",
+      de: "Über",
+    },
     hash: "#about",
   },
   {
-    name: "Projects",
+    name: {
+      en: "Projects",
+      de: "Projekte",
+    },
     hash: "#projects",
   },
   {
-    name: "Skills",
+    name: {
+      en: "Skills",
+      de: "Fähigkeiten",
+    },
     hash: "#skills",
   },
   {
-    name: "Experience",
+    name: {
+      en: "Experience",
+      de: "Erfahrung",
+    },
     hash: "#experience",
   },
   {
-    name: "Contact",
+    name: {
+      en: "Contact",
+      de: "Kontakt",
+    },
     hash: "#contact",
   },
 ] as const;
+
+export const LinkType = typeof links[0];
 
 export const experiencesData = [
   {

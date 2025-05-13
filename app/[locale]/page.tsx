@@ -6,22 +6,28 @@ import Intro from "@/components/sections/intro";
 import Languages from "@/components/sections/languages";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
+import { Locale } from "next-intl";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
   return (
     <main className="flex flex-col items-center px-4">
-      <Intro />
+      <Intro locale={locale} />
       <SectionDivider />
-      <About />
+      <About locale={locale} />
       <SectionDivider />
-      <Projects />
+      <Projects locale={locale} />
       <SectionDivider />
-      <Skills />
+      <Skills locale={locale} />
       <Languages />
       <SectionDivider hideDivider />
-      <Experience />
+      <Experience locale={locale} />
       <SectionDivider hideDivider />
-      <Contact />
+      <Contact locale={locale} />
     </main>
   );
 }

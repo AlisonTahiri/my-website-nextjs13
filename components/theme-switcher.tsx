@@ -26,7 +26,7 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className="flex items-center justify-center text-[1.2rem] cursor-pointer transform transition-transform duration-200 hover:scale-110  dark:bg-gray-950"
+      className="mx-2 flex items-center justify-center text-[1.2rem] cursor-pointer transform transition-transform duration-200 hover:scale-110  dark:bg-gray-950"
       onClick={handleChange}
     >
       {theme === "light" ? <BsSun /> : <BsMoon className="text-gray-400" />}
