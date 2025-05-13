@@ -16,8 +16,6 @@ export default function ThemeSwitch() {
     return null;
   }
 
-  console.log({ systemTheme, theme });
-
   const handleChange = () => {
     if (theme === "system") {
       systemTheme === "dark" ? setTheme("light") : setTheme("dark");
@@ -28,10 +26,10 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className="fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950"
+      className="flex items-center justify-center text-[1.2rem] cursor-pointer transform transition-transform duration-200 hover:scale-110  dark:bg-gray-950"
       onClick={handleChange}
     >
-      {theme === "light" ? <BsSun /> : <BsMoon />}
+      {theme === "light" ? <BsSun /> : <BsMoon className="text-gray-400" />}
     </button>
   );
 }

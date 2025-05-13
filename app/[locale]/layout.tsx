@@ -6,7 +6,6 @@ import Header from "@/components/sections/header";
 import { Providers } from "../providers";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/sections/footer";
-import ThemeSwitch from "@/components/theme-switcher";
 import Script from "next/script";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -55,7 +54,6 @@ export default async function RootLayout({
           <BgDecorator />
           {children}
           <Footer />
-          <ThemeSwitch />
         </Providers>
         <Toaster position="top-right" />
 
