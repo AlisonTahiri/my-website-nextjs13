@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## For a live preview, visit my website:
 
-[www.alisontahiri.com](https://www.alisontahiri.com/)
+[www.alisontahiri.al](https://www.alisontahiri.al/)
 
 ## Getting Started
 
