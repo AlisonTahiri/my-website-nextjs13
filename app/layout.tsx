@@ -12,9 +12,19 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alisontahiri.al"),
   title: "Alison Tahiri | Personal Portfolio",
   description:
     "Alison Tahiri is a web developer with more than 3 years of experience.",
+  keywords: ["Alison Tahiri", "portfolio", "web developer", "react", "nextjs"],
+  openGraph: {
+    title: "Alison Tahiri | Personal Portfolio",
+    description: "Alison Tahiri is a web developer with more than 3 years of experience.",
+    url: "https://alisontahiri.al",
+    siteName: "Alison Tahiri",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
