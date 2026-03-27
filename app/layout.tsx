@@ -35,7 +35,10 @@ export default function RootLayout({
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html suppressHydrationWarning lang="en" className="!scroll-smooth">
+    <html suppressHydrationWarning lang="en" className="scroll-smooth!">
+    <head>
+      <link rel="canonical" href="https://alisontahiri.al/" />
+    </head>
       {/* Google Tag Manager Snippet */}
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
