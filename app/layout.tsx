@@ -8,7 +8,7 @@ import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/sections/footer";
 import ThemeSwitch from "@/components/theme-switcher";
-import AIChatWidget from "@/components/AIChatWidget";
+// import AIChatWidget from "@/components/AIChatWidget";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -84,7 +84,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <ThemeSwitch />
-          <AIChatWidget />
+          {/* <AIChatWidget /> */}
         </Providers>
         <Toaster position="top-right" />
 
