@@ -120,7 +120,7 @@ export default function Intro() {
         <div className="flex gap-2">
           <a
             className="glass p-4 flex items-center rounded-full hover:scale-110 active:scale-105 transition cursor-pointer text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]"
-            href="https://www.linkedin.com/in/alison-tahiri-0421b2205/"
+            href="https://www.linkedin.com/in/alison-t-0421b2205/"
             target="_blank"
             rel="noopener"
             aria-label="Open Alison Tahiri's LinkedIn profile"
