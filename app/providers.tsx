@@ -1,6 +1,7 @@
 "use client";
 
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import LanguageProvider from "@/context/language-context";
 import { ThemeProvider } from "next-themes";
 import React from "react";
 
@@ -10,8 +11,12 @@ type Props = {
 
 export const Providers = ({ children }: Props) => {
   return (
-    <ActiveSectionContextProvider>
-      <ThemeProvider attribute="class">{children}</ThemeProvider>
-    </ActiveSectionContextProvider>
+    <LanguageProvider>
+      <ActiveSectionContextProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
+      </ActiveSectionContextProvider>
+    </LanguageProvider>
   );
 };

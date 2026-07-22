@@ -1,25 +1,41 @@
 import BgDecorator from "@/components/BgDecorator";
+import GridPattern from "@/components/GridPattern";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/sections/header";
 import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/sections/footer";
 import ThemeSwitch from "@/components/theme-switcher";
+import AIChatWidget from "@/components/AIChatWidget";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alisontahiri.al"),
-  title: "Alison Tahiri | Personal Portfolio",
+  title: "Alison Tahiri — Front-End Developer & Software Engineer",
   description:
-    "Alison Tahiri is a web developer with more than 3 years of experience.",
-  keywords: ["Alison Tahiri", "portfolio", "web developer", "react", "nextjs"],
+    "Front-End Developer specializing in React, Next.js, and TypeScript. Building scalable, performant web applications with modern tools and AI-powered workflows.",
+  keywords: [
+    "Alison Tahiri",
+    "portfolio",
+    "front-end developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "web developer",
+    "software engineer",
+  ],
   openGraph: {
-    title: "Alison Tahiri | Personal Portfolio",
-    description: "Alison Tahiri is a web developer with more than 3 years of experience.",
+    title: "Alison Tahiri — Front-End Developer & Software Engineer",
+    description:
+      "Front-End Developer specializing in React, Next.js, and TypeScript. Building scalable, performant web applications.",
     url: "https://alisontahiri.al",
     siteName: "Alison Tahiri",
     locale: "en_US",
@@ -35,10 +51,14 @@ export default function RootLayout({
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html suppressHydrationWarning lang="en" className="scroll-smooth!">
-    <head>
-      <link rel="canonical" href="https://alisontahiri.al/" />
-    </head>
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={`scroll-smooth! ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <head>
+        <link rel="canonical" href="https://alisontahiri.al/" />
+      </head>
       {/* Google Tag Manager Snippet */}
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
@@ -51,14 +71,20 @@ export default function RootLayout({
       </Script>
 
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${inter.className} relative pt-28 sm:pt-36`}
+        style={{
+          background: "var(--color-surface)",
+          color: "var(--color-text-primary)",
+        }}
       >
         <Providers>
-          <Header />
+          <GridPattern />
           <BgDecorator />
+          <Header />
           {children}
           <Footer />
           <ThemeSwitch />
+          <AIChatWidget />
         </Providers>
         <Toaster position="top-right" />
 

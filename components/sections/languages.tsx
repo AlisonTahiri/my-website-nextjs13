@@ -2,63 +2,88 @@
 
 import React from "react";
 import SectionHeading from "@/components/section-heading";
-import { languagesData, skillsData } from "@/lib/data";
+import { languagesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
+import { useLanguage } from "@/context/language-context";
 import { motion } from "framer-motion";
-import LanguageLevel from "../language-level";
 import Image from "next/image";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.2 / (index + 1),
-    },
-  }),
-};
 
 export default function Languages() {
   const { ref } = useSectionInView("Skills");
+  const { t } = useLanguage();
 
   return (
     <section
       id="languages"
       ref={ref}
-      className="max-w-[53rem] scroll-mt-28 text-center"
+      className="max-w-[53rem] scroll-mt-28 text-center mb-10"
     >
-      <SectionHeading>Languages I know</SectionHeading>
-      <motion.ul
-        variants={fadeInAnimationVariants}
-        initial="initial"
-        whileInView="animate"
-        viewport={{
-          once: true,
-        }}
-        className="flex flex-wrap justify-center gap-2 text-gray-800"
-      >
+      <SectionHeading>{t.languages.title}</SectionHeading>
+
+      <div className="flex flex-wrap justify-center gap-4">
         {languagesData.map((lang, index) => (
-          <li
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            key={index}
+          <motion.div
+            key={lang.name}
+            className="glass rounded-2xl px-5 py-4 flex flex-col items-center gap-3 min-w-[120px] skill-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.4 }}
           >
-            <div className="flex gap-1 items-center mb-1">
-              <Image
-                src={lang.flagImage}
-                alt={lang.name}
-                width={25}
-                height={25}
-              ></Image>
-              <div className="text-lg">{lang.name}</div>
+            <Image
+              src={lang.flagImage}
+              alt={lang.name}
+              width={36}
+              height={36}
+              className="rounded-full object-cover w-9 h-9"
+            />
+            <span className="font-medium text-sm">{lang.name}</span>
+
+            {/* Circular progress indicator */}
+            <div className="relative w-12 h-12">
+              <svg className="w-12 h-12 -rotate-90" viewBox="0 0 44 44">
+                {/* Background circle */}
+                <circle
+                  cx="22"
+                  cy="22"
+                  r="18"
+                  fill="none"
+                  stroke="var(--color-border)"
+                  strokeWidth="3"
+                />
+                {/* Progress circle */}
+                <motion.circle
+                  cx="22"
+                  cy="22"
+                  r="18"
+                  fill="none"
+                  stroke="url(#gradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeDasharray={`${(lang.level / 10) * 113.1} 113.1`}
+                  initial={{ strokeDashoffset: 113.1 }}
+                  whileInView={{ strokeDashoffset: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 1.2,
+                    delay: index * 0.15,
+                    ease: "easeOut",
+                  }}
+                />
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0ea5e9" />
+                    <stop offset="100%" stopColor="#06b6d4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-[var(--color-text-secondary)]">
+                {lang.level}/10
+              </span>
             </div>
-            <LanguageLevel levelOverTen={lang.level} />
-          </li>
+          </motion.div>
         ))}
-      </motion.ul>
+      </div>
     </section>
   );
 }
