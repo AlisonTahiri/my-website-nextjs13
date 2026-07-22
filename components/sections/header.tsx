@@ -35,20 +35,14 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       {/* ===== DESKTOP NAV ===== */}
-      <motion.div
-        className="hidden sm:block fixed top-6 left-1/2 h-[3.25rem] w-[48rem] rounded-full border border-[var(--color-border)] glass-strong shadow-lg shadow-black/[0.03]"
+      <motion.nav
+        className="hidden sm:flex fixed top-6 left-1/2 h-[3.25rem] rounded-full border border-[var(--color-border)] glass-strong shadow-lg shadow-black/[0.03] items-center px-6 z-[999]"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
-      />
-
-      <nav className="hidden sm:flex fixed top-[1.7rem] left-1/2 -translate-x-1/2">
-        <ul className="flex items-center gap-0.5 text-[0.82rem] font-medium">
+      >
+        <ul className="flex items-center gap-1 text-[0.82rem] font-medium h-full">
           {/* Logo */}
-          <motion.li
-            className="flex items-center mr-2"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
+          <li className="flex items-center mr-2">
             <Link
               href="#home"
               className="font-bold text-lg gradient-text px-2"
@@ -56,55 +50,51 @@ export default function Header() {
             >
               AT
             </Link>
-          </motion.li>
+          </li>
 
           {/* Nav links */}
-          {links.map((link, i) => (
-            <motion.li
-              className="flex items-center relative"
-              key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-            >
-              <Link
-                className={clsx(
-                  "flex items-center px-3 py-2 rounded-full transition text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]",
-                  {
-                    "text-[var(--color-text-primary)]!":
-                      activeSection === link.name,
-                  }
-                )}
-                href={link.hash}
-                onClick={() => handleLinkClick(link.name)}
+          {links.map((link, i) => {
+            const isActive = activeSection === link.name;
+            return (
+              <li
+                className="h-3/4 flex items-center justify-center relative"
+                key={link.hash}
               >
-                {t.nav[navKeys[i]]}
+                <Link
+                  className={clsx(
+                    "flex items-center justify-center px-3.5 py-1.5 rounded-full transition text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] relative z-10",
+                    {
+                      "text-[var(--color-text-primary)]!": isActive,
+                    }
+                  )}
+                  href={link.hash}
+                  onClick={() => handleLinkClick(link.name)}
+                >
+                  {t.nav[navKeys[i]]}
 
-                {link.name === activeSection && (
-                  <motion.span
-                    className="rounded-full absolute inset-0 -z-10"
-                    style={{ background: "var(--color-glow)" }}
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
-                )}
-              </Link>
-            </motion.li>
-          ))}
+                  {isActive && (
+                    <motion.span
+                      className="rounded-full absolute inset-0 -z-10"
+                      style={{ background: "var(--color-glow)" }}
+                      layoutId="activeSection"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
 
           {/* Language Switcher */}
-          <motion.li
-            className="flex items-center ml-1"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
+          <li className="flex items-center ml-1">
             <LanguageSwitcher />
-          </motion.li>
+          </li>
         </ul>
-      </nav>
+      </motion.nav>
 
       {/* ===== MOBILE NAV ===== */}
 
